@@ -17,11 +17,13 @@ This is a python script to convert Japanese characters for [Notepad++](https://n
 ## Usage
 
 1. Select the characters you want to do the convertion.
-2. Click the convertion's menu in `Plugins -> Python Script -> Scripts -> zen-han`
+2. Click the convertion's menu in `Plugins -> Python Script -> Scripts -> zen-han`  
 ![Plugins Menu](./menu.png)
 
 ## Description of scripts
 
+* \_\_init\_\_  
+  `The file which make the directory to a python package`
 * Han2Zen  
   `Convert all half-width characters in selection to full-width`
 * Han2ZenAns  

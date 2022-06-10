@@ -34,11 +34,32 @@ def arrayFind(a_arr, a_val):
 #  選択中の文字列の置き換え
 # -------------------------
 def replaceSelect(a_str):
-    a_st = editor.getSelectionStart()
-    editor.replaceSel(a_str)
-    a_ed = editor.getCurrentPos()
-    editor.setSelectionStart(a_st)
-    editor.setSelectionEnd(a_ed)
+    if editor.selectionIsRectangle():
+        a_st = editor.getRectangularSelectionCaret()
+        a_ed = editor.getRectangularSelectionAnchor()
+        a_col = editor.getColumn(a_st)
+        a_stln = editor.lineFromPosition(a_st)
+        a_edln = editor.lineFromPosition(a_ed)
+
+        a_txts = a_str.split("\n")
+        editor.deleteBackNotLine()
+        for a_ln in range(a_stln, a_edln + 1):
+            a_lned = editor.getLineEndPosition(a_ln)
+            a_pos = editor.positionFromLine(a_ln) + a_col
+            a_txt = a_txts[a_ln - a_stln]
+            if len(a_txt) > 0:
+                editor.insertText(a_pos, a_txt)
+                a_ed = a_pos + editor.getLineEndPosition(a_ln) - a_lned
+
+        editor.setRectangularSelectionCaret(a_st)
+        editor.setRectangularSelectionAnchor(a_ed)
+
+    else:
+        a_st = editor.getSelectionStart()
+        editor.replaceSel(a_str)
+        a_ed = editor.getCurrentPos()
+        editor.setSelectionStart(a_st)
+        editor.setSelectionEnd(a_ed)
 
 # ---------
 #  変換処理

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-from ZenkakuHankaku import han2zenAns, han2zenKana
+import importlib
+zh = importlib.import_module("zen-han.ZenkakuHankaku")
 
-han2zenAns()
-han2zenKana()
+zh.han2zenAns()
+zh.han2zenKana()
