@@ -93,5 +93,5 @@ Just copy `CopyFiles.py` file to the scripts' folder. For example:
 
 ## License
 
-This script is available under the
+These scripts are available under the
 [MIT license](https://opensource.org/licenses/MIT).
