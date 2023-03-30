@@ -46,7 +46,7 @@ def sort(a_str):
     if a_obj is None:
         return None
     elif a_type == 1:
-        return json.dumps(a_obj, sort_keys=True, indent=2)
+        return json.dumps(a_obj, sort_keys=True, indent=2, ensure_ascii = False)
     else:
         return yaml.safe_dump(a_obj, allow_unicode=True, sort_keys=True, indent=2)
 
